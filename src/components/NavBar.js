@@ -9,7 +9,7 @@ function NavBar() {
           <Link to="/category/Instrumentos">INSTRUMENTOS</Link>
         </li>
         <li>
-          <Link to="/category/Muebles">MUEBLES</Link>
+          <Link to="/category/Muebles" className="mr-8">MUEBLES</Link>
         </li>
       </ul>
     </nav>

@@ -31,7 +31,7 @@ function Checkout() {
   };
 
   return (
-    <div className="container mx-auto mt-8">
+    <div className="container mx-auto mt-8 mb-10">
       <h2 className="text-2xl font-semibold mb-4">Resumen de Compra</h2>
       <div className="mt-4">
         <h3 className="text-xl font-semibold mb-2">Detalle de la Compra</h3>

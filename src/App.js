@@ -6,8 +6,9 @@ import ItemListContainer from "./components/ItemListContainer";
 import CartContextProvider from "./Context/CartContext";
 import Cart from "./components/Cart";
 import Header from "./Header";
-import Checkout from "./components/Checkout"; 
-import './index.scss';
+import Section from "./Section";
+import Checkout from "./components/Checkout";
+import "./index.scss";
 import NotFound from "./components/NotFound";
 
 function App() {
@@ -15,9 +16,10 @@ function App() {
     <CartContextProvider>
       <BrowserRouter>
         <Header />
+        <Section />
         <Routes>
           <Route path={"/"} element={<ItemListContainer />} />
-          <Route path={"/category/:prodCategory"} element={<ItemListContainer />} />
+          <Route path={"/category/:prodCategory"} element={<ItemListContainer />}/>
           <Route path={"/product/:productId"} element={<ItemDetail />} />
           <Route path={"/cart"} element={<Cart />} />
           <Route path="/cart/*" element={<Checkout />} />
