@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
-
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
+
+@import '~react-toastify/dist/ReactToastify.css';
+
 
 
 body {
     font-family: 'Josefin Sans', sans-serif; 
 }
+

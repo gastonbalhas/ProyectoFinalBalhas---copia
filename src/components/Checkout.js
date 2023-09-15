@@ -1,5 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../Context/CartContext';
+import { ToastContainer, toast } from 'react-toastify';
+
+
 
 function Checkout() {
   const { cart, clear } = useContext(CartContext);
@@ -21,13 +24,13 @@ function Checkout() {
   const totalAPagar = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   const handlePurchase = () => {
+    // Mostrar notificación estilo tostada
+    toast.success('¡Compra realizada con éxito! Gracias por tu compra.');
 
-    alert('¡Compra realizada con éxito! Detalles:\n' +
-          `Nombre: ${formData.firstName} ${formData.lastName}\n` +
-          `Email: ${formData.email}\n` +
-          `Total a pagar: $${totalAPagar}`);
-
-    clear();
+    // Limpia el carrito después de un cierto tiempo (por ejemplo, 5 segundos)
+    setTimeout(() => {
+      clear();
+    }, 5000);
   };
 
   return (
@@ -97,6 +100,18 @@ function Checkout() {
           </div>
         </form>
       </div>
+      {/* ToastContainer para mostrar las notificaciones estilo tostada */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }
