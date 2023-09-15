@@ -9,14 +9,14 @@ function ItemDetail() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [count, setCount] = useState(0); // Contador local
+  const [count, setCount] = useState(0); 
   const { addItem } = useContext(CartContext);
 
   useEffect(() => {
     const getProductFromFirebase = async () => {
       try {
         const productDocRef = doc(db, 'productos', productId);
-        console.log('Buscando producto con productId:', productId);
+      
         const productDoc = await getDoc(productDocRef);
 
         if (productDoc.exists()) {
@@ -25,11 +25,9 @@ function ItemDetail() {
           setIsLoading(false);
         } else {
           setIsLoading(false);
-          console.error('No se encontró el producto con el ID proporcionado.');
         }
       } catch (error) {
         setIsLoading(false);
-        console.error('Error al obtener los detalles del producto:', error);
       }
     };
 

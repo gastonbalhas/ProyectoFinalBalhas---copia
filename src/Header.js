@@ -16,7 +16,7 @@ function Header() {
             <h1 className="font-playfair">Equilatero Percusión</h1>
           </div>
         </Link>
-        <div className="flex-grow"></div> {/* Esto ocupa todo el espacio restante */}
+        <div className="flex-grow"></div>
         <Navbar />
         <CartWidget cartItems={cart} /> 
       </div>

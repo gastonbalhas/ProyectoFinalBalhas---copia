@@ -6,9 +6,8 @@ function Section() {
   const location = useLocation();
 
   useEffect(() => {
-    // Mostrar la imagen solo en la página de inicio y en las categorías
+
     if (location.pathname === '/' || location.pathname.includes('/category/')) {
-      // Simula una carga de 5 segundos antes de mostrar la imagen
       const timeout = setTimeout(() => {
         setShowImage(true);
       }, 1000);

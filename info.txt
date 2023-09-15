@@ -1,64 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { db } from '../db/Firebase.js'; 
-import { doc, getDoc } from 'firebase/firestore';
 
-function ItemDetail() {
-  const { prodId } = useParams();
-  const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isMounted, setIsMounted] = useState(true); // Agrega esta variable de estado
+Nombre del Proyecto: Equilatero Percusion
+Descripción: Una aplicación de tipo e-commerce que demuestra algunas características de React.
+Autor: [Gaston Balhas] (Estudiante de Coder House - React comision : 47140)
+Versión: 1.0.0
+Fecha de Creación: [Julio - Septiembre 2023]
+Última Actualización: [15 de septiembre 2023]
+Dependencias:
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.3.1",
+    "firebase": "^10.3.1",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.8.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "react-scripts": "^5.0.1",
+    "sass": "^1.64.1",
+    "web-vitals": "^2.1.4"
 
-  useEffect(() => {
-    setIsMounted(true); // Componente montado
+Repositorio: [https://github.com/gastonbalhas/ProyectoFinalBalhas---copia]
+Instrucciones de Ejecución:
+  1. Clona el repositorio desde GitHub.
+  2. Abre una terminal en la carpeta del proyecto.
+  3. Ejecuta 'npm install' para instalar las dependencias.
+  4. Ejecuta 'npm start' para iniciar la aplicación en modo de desarrollo.
 
-    return () => {
-      setIsMounted(false); // Componente desmontado
-    };
-  }, []);
+Notas Adicionales: Este proyecto es la entrega final del curso de React de Coder House. El cliente es real, 
+y eventualmente adicionare secciones mas acorde al rubro, de muestra de sonidos, fotos y esto sera la seccion de venta
+de productos. 
 
-  useEffect(() => {
-    const getProductFromFirebase = async () => {
-      try {
-        const productDocRef = doc(db, 'productos', prodId);
-        console.log('Buscando producto con prodId:', prodId);
-        const productDoc = await getDoc(productDocRef);
+Cualquier consulta estoy a su disposicion.
 
-        if (isMounted && productDoc.exists()) { // Verifica si el componente está montado
-          const productData = productDoc.data();
-          setProduct(productData);
-          setIsLoading(false);
-        } else if (isMounted) { // Verifica si el componente está montado
-          setIsLoading(false);
-          console.error('No se encontró el producto con el ID proporcionado.');
-        }
-      } catch (error) {
-        if (isMounted) { // Verifica si el componente está montado
-          setIsLoading(false);
-          console.error('Error al obtener los detalles del producto:', error);
-        }
-      }
-    };
-
-    getProductFromFirebase();
-  }, [prodId, isMounted]); // Añade isMounted como dependencia
-
-  return (
-    <div className="container mx-auto">
-      {isLoading ? (
-        <div className="flex items-center justify-center h-screen text-lg">
-          Cargando...
-        </div>
-      ) : product ? (
-        <div className="flex flex-col items-center mt-8">
-          <h2 className="text-2xl font-semibold mb-4">{product.title}</h2>
-          <p className="text-lg mt-4">Descripción: {product.description}</p> 
-        </div>
-      ) : (
-        <p>No se encontró el producto.</p>
-      )}
-    </div>
-  );
-}
-
-export default ItemDetail;
+Atte Gaston Balhas
+gastonbalhas@gmail.com

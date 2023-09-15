@@ -15,7 +15,7 @@ function Cart() {
   );
 
   return (
-    <div className="container mx-auto p-8">
+    <div className="container mx-auto p-8 min-h-screen">
       <h2 className="text-3xl font-semibold mb-4">Carrito de Compras</h2>
       <ul>
         {cart.map((item) => (

@@ -19,7 +19,10 @@ function App() {
         <Section />
         <Routes>
           <Route path={"/"} element={<ItemListContainer />} />
-          <Route path={"/category/:prodCategory"} element={<ItemListContainer />}/>
+          <Route
+            path={"/category/:prodCategory"}
+            element={<ItemListContainer />}
+          />
           <Route path={"/product/:productId"} element={<ItemDetail />} />
           <Route path={"/cart"} element={<Cart />} />
           <Route path="/cart/*" element={<Checkout />} />
